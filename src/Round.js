@@ -20,7 +20,7 @@ class Round {
     return turn.giveFeedback();
   }
   calculatePercentCorrect(){
-    var percentCorrect = Math.trunc((this.incorrectGuesses.length/this.turns)*100);
+    var percentCorrect = Math.trunc(((this.turns- this.incorrectGuesses.length)/this.turns)*100);
     return percentCorrect;
   }
   endRound(){

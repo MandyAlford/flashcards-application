@@ -11,7 +11,7 @@ class Game {
 
   start(){
     var cardArray = prototypeQuestions.map(function(cardObj){
-      return new Card(cardObj);
+      return new Card(cardObj.id, cardObj.question, cardObj.answers, cardObj.correctAnswer);
     });
 
     const deck = new Deck(cardArray);
