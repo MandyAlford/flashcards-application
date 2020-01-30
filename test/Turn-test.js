@@ -17,32 +17,58 @@ describe('Turn', function(){
   });
 
   it('should be able to return the first argument', function(){
-    const turn = new Turn('a', new Card);
-    expect(turn.returnGuess()).to.equal('a');
+    const card1 = new Card({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+    })
+    const turn = new Turn('object', card1);
+    expect(turn.returnGuess()).to.equal('object');
   });
 
   it('should be able to return the second argument', function(){
-    const card = new Card;
-    const turn = new Turn('a', card);
-    expect(turn.returnCard()).to.equal(card);
+    const card1 = new Card({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+    })
+    const turn = new Turn('object', card1);
+    expect(turn.returnCard()).to.equal(card1);
   });
 
   it('should be able to compare the users guess to the correct answer', function(){
-    const card = new Card(1, 'What is the first letter of the alphabet?', ['a', 'b', 'c'], 'a');
-    const turn = new Turn('a', card);
+    const card1 = new Card({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+    })
+    const turn = new Turn('object', card1);
     expect(turn.evaluateGuess()).to.equal(true);
   });
 
   it('should give the user feedback on the guess', function(){
-    const card = new Card(1, 'What is the first letter of the alphabet?', ['a', 'b', 'c'], 'a');
-    const turn = new Turn('a', card);
+    const card1 = new Card({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+    })
+    const turn = new Turn('object', card1);
     expect(turn.evaluateGuess()).to.equal(true);
     expect(turn.giveFeedback()).to.equal('correct!');
   });
 
   it('should give the user a different feedback on the guess', function(){
-    const card = new Card(1, 'What is the first letter of the alphabet?', ['a', 'b', 'c'], 'a');
-    const turn = new Turn('b', card);
+    const card1 = new Card({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+    })
+    const turn = new Turn('array', card1);
     expect(turn.evaluateGuess()).to.equal(false);
     expect(turn.giveFeedback()).to.equal('incorrect!');
   });
