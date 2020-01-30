@@ -20,12 +20,11 @@ class Round {
     return turn.giveFeedback();
   }
   calculatePercentCorrect(){
-    var percentCorrect = Math.trunc((this.incorrectGuesses.length/this.turns)*100);
-    this.endRound(percentCorrect);
+    var percentCorrect = Math.trunc(((this.turns- this.incorrectGuesses.length)/this.turns)*100);
     return percentCorrect;
   }
-  endRound(percentCorrect){
-    console.log(`** Round over! ** You answered ${percentCorrect}% of the questions correctly!`);
+  endRound(){
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly!`);
   }
 }
 
