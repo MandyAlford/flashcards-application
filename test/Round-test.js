@@ -1,14 +1,12 @@
 const chai = require('chai');
 const expect = chai.expect;
-
-const Turn = require('../src/Turn');
 const Card = require('../src/Card');
 const Deck = require('../src/Deck');
 const Round = require('../src/Round');
 
-describe('Round', function(){
+describe('Round', function() {
 
-  it('should return the current card being played', function(){
+  it('should return the current card being played', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -19,7 +17,7 @@ describe('Round', function(){
     expect(round.returnCurrentCard()).to.equal(card1);
   });
 
-  it('should keep track of how many turns there have been',      function(){
+  it('should keep track of how many turns there have been', function() {
     const card1 = new Card(1, 'What is Robbie\'s favorite animal', ['sea otter', 'pug', 'capybara'], 'sea otter');
     const card2 = new Card(14, 'What organ is Khalid missing?', ['spleen', 'appendix', 'gallbladder'], 'gallbladder');
     const card3 = new Card(12, 'What is Travis\'s middle name?', ['Lex', 'William', 'Fitzgerald'], 'Fitzgerald');
@@ -31,7 +29,7 @@ describe('Round', function(){
     expect(round.turns).to.equal(1);
   });
 
-  it('should keep track of all incorrect guesses', function(){
+  it('should keep track of all incorrect guesses', function() {
     const card1 = new Card({
       "id": 1,
       "question": "What allows you to define a set of related information using key-value pairs?",
@@ -58,7 +56,7 @@ describe('Round', function(){
     expect(round.incorrectGuesses).to.deep.equal([1]);
   });
 
-  it('should replace the current card after a guess had been made', function(){
+  it('should replace the current card after a guess had been made', function() {
     const card1 = new Card({
       "id": 1,
       "question": "What allows you to define a set of related information using key-value pairs?",
@@ -85,7 +83,7 @@ describe('Round', function(){
     expect(round.returnCurrentCard()).to.equal(card2);
   });
 
-  it('should give feedback if a guess is correct', function(){
+  it('should give feedback if a guess is correct', function() {
     const card1 = new Card({
       "id": 1,
       "question": "What allows you to define a set of related information using key-value pairs?",
@@ -111,7 +109,7 @@ describe('Round', function(){
     expect(round.takeTurn('object')).to.equal('correct!');
   });
 
-  it('should give feedback if a guess is incorrect', function(){
+  it('should give feedback if a guess is incorrect', function() {
     const card1 = new Card({
       "id": 1,
       "question": "What allows you to define a set of related information using key-value pairs?",
@@ -136,7 +134,7 @@ describe('Round', function(){
     expect(round.takeTurn('array')).to.equal('incorrect!');
   });
 
-  it('should be able to calculate the percentage of correct answers', function(){
+  it('should be able to calculate the percentage of correct answers', function() {
     const card1 = new Card({
       "id": 1,
       "question": "What allows you to define a set of related information using key-value pairs?",
@@ -165,7 +163,7 @@ describe('Round', function(){
     expect(round.calculatePercentCorrect()).to.equal(66);
   });
 
-  it('should tell the user how lond the round took', function(){
+  it('should tell the user how lond the round took', function() {
     const card1 = new Card({
       "id": 1,
       "question": "What allows you to define a set of related information using key-value pairs?",
