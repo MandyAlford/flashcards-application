@@ -193,5 +193,4 @@ describe('Round', function(){
     round.takeTurn('accessor method');
     expect(round.calculateGameTime()).to.equal('0 minutes and 0 seconds');
   })
-
 });
