@@ -23,5 +23,5 @@ On the command line of your terminal type **node index.js** to play the game.
 
 
 ## GitHub Info
-[Mandy Alford](https://github.com/MandyAlford) </br>
+[Mandy Alford GitHub Profile](https://github.com/MandyAlford) </br>
 [Flashcards Repository](https://github.com/MandyAlford/flashcards-starter) </br>
