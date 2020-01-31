@@ -165,4 +165,32 @@ describe('Round', function(){
     expect(round.calculatePercentCorrect()).to.equal(66);
   });
 
+  it('should tell the user how lond the round took', function(){
+    const card1 = new Card({
+      "id": 1,
+      "question": "What allows you to define a set of related information using key-value pairs?",
+      "answers": ["object", "array", "function"],
+      "correctAnswer": "object"
+    });
+    const card2 = new Card({
+      "id": 2,
+      "question": "What is a comma-separated list of related values?",
+      "answers": ["array", "object", "function"],
+      "correctAnswer": "array"
+    });
+    const card3 = new Card({
+      "id": 3,
+      "question": "What type of prototype method directly modifies the existing array?",
+      "answers": ["mutator method", "accessor method", "iteration method"],
+      "correctAnswer": "mutator method"
+    });
+
+    const deck = new Deck([card1, card2, card3]);
+
+    const round = new Round(deck);
+    round.takeTurn('object');
+    round.takeTurn('array');
+    round.takeTurn('accessor method');
+    expect(round.calculateGameTime()).to.equal('0 minutes and 0 seconds');
+  })
 });

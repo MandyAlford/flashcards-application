@@ -11,11 +11,12 @@ class Game {
 
   start(){
     var cardArray = prototypeQuestions.map(function(cardObj){
-      return new Card(cardObj.id, cardObj.question, cardObj.answers, cardObj.correctAnswer);
+      return new Card(cardObj);
     });
 
     const deck = new Deck(cardArray);
     const round = new Round(deck);
+
 
     this.currentRound = round;
     this.printMessage(deck, round);
