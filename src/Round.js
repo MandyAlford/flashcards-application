@@ -31,8 +31,8 @@ class Round {
     return `${minutes} minutes and ${seconds} seconds`;
   }
   endRound(){
-    const gameTime = this.calculateGameTime();
-    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly! Total time was ${gameTime}`);
+    console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% of the questions correctly! Total time was ${this.calculateGameTime()}`);
+    // game.restart
   }
 }
 
